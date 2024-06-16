@@ -1,27 +1,32 @@
-import type { ReactNode } from "react";
+import type { ReactNode, FC, FunctionComponent } from "react";
 
 // Export plugin
 export { default } from "./plugin";
 
 // Global Types for Control Statements
-declare global {
-	function If(props: {
-		condition: boolean,
-		children: ReactNode;
-	}): any;
 
-	function Choose(props: {
-		children: ReactNode;
-	}): any;
+type IfProps = {
+	condition: boolean;
+	children: ReactNode;
+};
 
-	function When(props: {
-		condition: boolean,
-		children: ReactNode;
-	}): any;
+type ChooseProps = {
+	children: ReactNode;
+};
 
-	function Otherwise(props: {
-		children: ReactNode;
-	}): any;
-}
+type WhenProps = {
+	condition: boolean;
+	children: ReactNode;
+};
 
-export {};
+type OtherwiseProps = {
+	children: ReactNode;
+};
+
+export const If: FunctionComponent<IfProps> = () => null;
+
+export const Choose: FunctionComponent<ChooseProps> = () => null;
+
+export const When: FunctionComponent<WhenProps> = () => null;
+
+export const Otherwise: FunctionComponent<OtherwiseProps> = () => null;

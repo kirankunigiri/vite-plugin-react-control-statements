@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { If, Choose, Otherwise, When } from "vite-plugin-react-control-statements";
 
 function App() {
 	const [ifTestValue, setIfTestValue] = useState(false);

@@ -20,7 +20,13 @@ export default defineConfig({
     plugins: [react(), reactControlStatements()],
 })
 ```
-And you're ready to use it!
+
+And you're ready to use it! Just import the components you need, and use them. Take a look at some examples below.
+
+**Note:** you can declare them as global types if you want to avoid importing them in your code. These imports are just for TypeScript to recognize the components and are not needed by the Vite plugin.
+```ts
+import { If, Choose, Otherwise, When } from "vite-plugin-react-control-statements";
+```
 
 ---
 
@@ -138,10 +144,10 @@ How to work on this project.
 
 - What about ForEach loops?
   - They were not implemented because they make code more verbose than the existing `[].map()` which already works well. Since we require TypeScript definitions, it is difficult to create a ForEach component that is small.
-- Why is there a separate '@types' package?
-  - This package uses global types for each of the control statements for ease of use, so you can avoid having to import types. However, global types don't seem to work in npm packages unless the name is prefixed with '@types' or it requires manually adding the types to your tsconfig.
+- Why not make them global types by default?
+  - Global types don't seem to work in npm packages unless the name is prefixed with '@types' or it requires manually adding the types to your tsconfig.
   - [More info here](https://stackoverflow.com/a/65196028/5579279)
-  - As a fix, there is a build step where global types are moved to the @types package, while other types stay in the main package.
+  - There is a current PR in progress on the DefinitelyTyped team repo to add global types for each of the control statements.
 
 - Why not just use custom React components (like with react-if)?
   - [This article](https://blog.bitsrc.io/the-pitfalls-of-using-guard-or-if-components-in-react-c8f85ea87295) provides a good explanation of the issues that using control components can cause. react-if actually solves one of the biggest issues of eager evaluation by recommending to use arrow functions, but it makes the code less readable. In the end, I thought code transpilation with Vite would be a better solution.

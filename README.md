@@ -5,9 +5,9 @@ A Vite plugin for using React control statements. Inspired by traditional templa
 
 ### Installation
 
-Install
+Install (use npm, pnpm, yarn, etc.)
 ```bash
-npm i vite-plugin-react-control-statements @types/vite-plugin-react-control-statements
+npm i vite-plugin-react-control-statements
 ````
 
 Add the plugin to your vite config.
@@ -76,6 +76,8 @@ The plugin automatically replaces the blocks with empty jsx tags (fragments), so
 ---
 
 ### Code Transform Examples
+
+Here are some examples of what the Vite plugin does to your code.
 
 **If Block - Input/Output:**
 ```tsx

@@ -1,7 +1,7 @@
 {
 	"name": "vite-plugin-react-control-statements",
 	"description": "A Vite plugin for using React control statements",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/kirankunigiri/vite-plugin-react-control-statements",

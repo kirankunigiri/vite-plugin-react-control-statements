@@ -19,10 +19,11 @@ jobs:
                   version: 8
             - uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  node-version: '20.x'
+                  registry-url: 'https://registry.npmjs.org'
                   cache: "pnpm"
             - run: pnpm install --frozen-lockfile --filter ./package
             - run: pnpm --filter ./package run build
-            - run: cd package && npm publish
+            - run: cd package && npm publish --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

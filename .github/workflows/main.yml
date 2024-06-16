@@ -14,6 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - run: cp README.md package/README.md
             - uses: pnpm/action-setup@v4
               with:
                   version: 8

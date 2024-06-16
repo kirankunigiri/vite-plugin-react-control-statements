@@ -1,0 +1,43 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	color: white;
+	background-color: #242424;
+	margin: 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+button {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 6px 20px;
+	font-weight: 500;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+p, h3 { margin: 0; }
+
+hr {
+	margin: 20px 0;
+	filter: brightness(0.4);
+	width: 400px;
+}
+
+button:hover {
+	filter: brightness(0.9);
+}
+
+.slider { width: 300px; }
+.slider:hover { filter: none; }

@@ -1,0 +1,44 @@
+{
+	"name": "vite-plugin-react-control-statements",
+	"description": "A Vite plugin for using React control statements",
+	"version": "0.0.1",
+	"projects": [
+		"https://github.com/kirankunigiri/vite-plugin-react-control-statements"
+	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js"
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup src/index.ts --format cjs,esm --dts",
+		"release": "pnpm run build && changeset publish",
+		"lint": "tsc"
+	},
+	"keywords": [
+		"react",
+		"control-statements",
+		"logic-blocks",
+		"typescript",
+		"jsx",
+		"tsx",
+		"if",
+		"loop",
+		"if-else",
+		"foreach",
+		"vite"
+	],
+	"author": "Kiran Kunigiri",
+	"license": "MIT",
+	"peerDependencies": {
+		"vite": "^4.2.0 || ^5.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.66",
+		"tsup": "^8.1.0",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.0"
+	}
+}

@@ -10,21 +10,50 @@ permissions:
     pull-requests: write
 
 jobs:
-    build_and_publish:
+    check_version:
         runs-on: ubuntu-latest
+        outputs:
+            publish_needed: ${{ steps.check.outputs.publish_needed }}
         steps:
             - uses: actions/checkout@v4
+
+            - id: check
+              run: |
+                  PACKAGE_NAME=$(jq -r .name package/package.json)
+                  PACKAGE_VERSION=$(jq -r .version package/package.json)
+                  CURRENT_VERSION=$(npm view $PACKAGE_NAME version)
+                  echo "current version: $CURRENT_VERSION"
+                  echo "package version: $PACKAGE_VERSION"
+                  if [ "$PACKAGE_VERSION" != "$CURRENT_VERSION" ]; then
+                    echo "::set-output name=publish_needed::true"
+                  else
+                    echo "::set-output name=publish_needed::false"
+                  fi
+              shell: bash
+
+    build_and_publish:
+        runs-on: ubuntu-latest
+        needs: check_version
+        if: needs.check_version.outputs.publish_needed == 'true'
+        steps:
+            - uses: actions/checkout@v4
+
             - run: cp README.md package/README.md
+
             - uses: pnpm/action-setup@v4
               with:
                   version: 8
+
             - uses: actions/setup-node@v4
               with:
                   node-version: '20.x'
                   registry-url: 'https://registry.npmjs.org'
                   cache: "pnpm"
+
             - run: pnpm install --frozen-lockfile --filter ./package
+
             - run: pnpm --filter ./package run build
+
             - run: cd package && npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

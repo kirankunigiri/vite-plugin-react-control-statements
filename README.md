@@ -23,12 +23,11 @@ export default defineConfig({
 
 And you're ready to use it! Just import the components you need, and use them. Take a look at some examples below.
 
-**Note:** you can declare them as global types if you want to avoid importing them in your code. These imports are just for TypeScript to recognize the components and are not needed by the Vite plugin.
 ```ts
 import { If, Choose, Otherwise, When } from "vite-plugin-react-control-statements";
 ```
 
-**Global Types** - The imports are just for TypeScript to recognize the components and are not needed by the Vite plugin. If you want to avoid importing them in your code, you can declare them as global types in your project. Or you can also install the @types package which adds global types (global types don't work by default unless they are part of @types. see the notes at the end for more details).
+**Global Types** - The imports are just for TypeScript to recognize the components and are not needed by the Vite plugin. If you want to avoid importing them in your code, you can declare them as global types in your project. Or you can also install the @types package which adds global types for you (global types don't work by default unless they are part of an @types package, see the notes at the end for more details).
 `npm i -D @types/vite-plugin-react-control-statements`
 
 ---
